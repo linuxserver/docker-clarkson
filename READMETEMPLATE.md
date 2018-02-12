@@ -3,7 +3,7 @@
 [ircurl]: https://www.linuxserver.io/irc/
 [podcasturl]: https://www.linuxserver.io/podcast/
 [appurl]: www.example.com
-[hub]: https://hub.docker.com/r/<image-name>/
+[hub]: https://hub.docker.com/r/linuxserver/clarkson/
 
 
 [![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png?v=4&s=4000)][linuxserverurl]
@@ -27,11 +27,12 @@ The [LinuxServer.io][linuxserverurl] team brings you another image release featu
  + weekly base OS updates with common layers across the entire LinuxServer.io ecosystem to minimise space usage, down time and bandwidth
  + security updates
 
-# <image-name>
+# linuxserver/clarkson
+[![](https://images.microbadger.com/badges/version/linuxserver/clarkson.svg)](https://microbadger.com/images/linuxserver/clarkson "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/clarkson.svg)](https://microbadger.com/images/linuxserver/clarkson "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/clarkson.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/clarkson.svg)][hub][![Build Status](https://ci.linuxserver.io/buildStatus/icon?job=Docker-Builders/x86-64/x86-64-clarkson)](https://ci.linuxserver.io/job/Docker-Builders/job/x86-64/job/x86-64-clarkson/)
 
 Provide a short, concise description of the application. No more than two SHORT paragraphs. Link to sources where possible and include an image illustrating your point if necessary. Point users to the original applications website, as that's the best place to get support - not here.
 
-`IMPORTANT, replace all instances of <image-name> with the correct dockerhub repo (ie linuxserver/plex) and <container-name> information (ie, plex)`
+`IMPORTANT, replace all instances of linuxserver/clarkson with the correct dockerhub repo (ie linuxserver/plex) and clarkson information (ie, plex)`
 
 &nbsp;
 
@@ -39,11 +40,11 @@ Provide a short, concise description of the application. No more than two SHORT 
 
 ```
 docker create \
-  --name=<container-name> \
+  --name=clarkson \
   -v <path to data>:/config \
   -e PGID=<gid> -e PUID=<uid>  \
   -p 1234:1234 \
-  <image-name>
+  linuxserver/clarkson
 ```
 
 &nbsp;
@@ -92,10 +93,10 @@ Insert a basic user guide here to get a n00b up and running with the software in
 
 | Function | Command |
 | :--- | :--- |
-| Shell access (live container) | `docker exec -it <container-name> /bin/bash` |
-| Realtime container logs | `docker logs -f <container-name>` |
-| Container version number | `docker inspect -f '{{ index .Config.Labels "build_version" }}' <container-name>` |
-| Image version number |  `docker inspect -f '{{ index .Config.Labels "build_version" }}' <image-name>` |
+| Shell access (live container) | `docker exec -it clarkson /bin/bash` |
+| Realtime container logs | `docker logs -f clarkson` |
+| Container version number | `docker inspect -f '{{ index .Config.Labels "build_version" }}' clarkson` |
+| Image version number |  `docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/clarkson` |
 
 &nbsp;
 
