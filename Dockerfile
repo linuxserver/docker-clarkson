@@ -23,7 +23,7 @@ RUN \
  yarn cache clean && \
  echo "**** install clarkson ****" && \
  mkdir -p \
-	/app/clarkson&& \
+	/app/clarkson && \
  curl -o \
  /tmp/clarkson-src.tar.gz -L \
 	"https://github.com/linuxserver/Clarkson/archive/master.tar.gz" && \
