@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+
+echo "---------------------"
+echo "Migrating database..."
+echo "---------------------"
+
+cd /app/clarkson
+./flyway/flyway -user="${MYSQL_USERNAME}" -password="${MYSQL_PASSWORD}" -schemas=clarkson -url="jdbc:mysql://${MYSQL_HOST}" migrate

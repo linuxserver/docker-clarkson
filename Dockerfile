@@ -7,23 +7,32 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 LABEL maintainer="sparklyballs"
 
 RUN \
- echo "**** install build packages ****" && \
+
+ # Install temp build dependencies
  apk add --no-cache --virtual=build-dependencies \
 	curl \
 	nodejs-npm \
-	python \
 	tar \
+        python \
 	yarn && \
- echo "**** install runtime packages ****" && \
+
+ # Install permanent build dependencies
  apk add --no-cache \
-	nodejs && \
- echo "**** install node packages and angular-cli ****" && \
- npm install -g ts-node typescript && \
+	nodejs \
+        openjdk8-jre && \
+
+ # Get node deps for run process
+ npm install -g node-gyp ts-node typescript && \
+
+ # Use Yarn to get angular because npm flaps
  yarn global add @angular/cli && \
  yarn cache clean && \
- echo "**** install clarkson ****" && \
+
+ # Prepare app directory
  mkdir -p \
 	/app/clarkson && \
+
+ # Get latest version of Clarkson
  curl -o \
  /tmp/clarkson-src.tar.gz -L \
 	"https://github.com/linuxserver/Clarkson/archive/master.tar.gz" && \
@@ -31,11 +40,18 @@ RUN \
  /tmp/clarkson-src.tar.gz -C \
 	/app/clarkson --strip-components=1 && \
  cd /app/clarkson && \
+
+ # Make flyway executable
+ chmod +x ./flyway/flyway && \
+
+ # Grab all dependencies for the application itself
  npm install && \
- ng build --prod && \
- echo "**** cleanup ****" && \
+
+ # Remove leftover deps
  apk del --purge build-dependencies && \
  rm -rf \
 	/root \
-	/tmp/* && \
- mkdir -p /root
+	/tmp/*
+
+# Add startup files
+COPY root/ /

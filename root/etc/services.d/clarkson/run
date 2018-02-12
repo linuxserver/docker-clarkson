@@ -1,0 +1,12 @@
+#!/usr/bin/with-contenv bash
+
+echo "------------------"
+echo "Starting Clarkson."
+echo "------------------"
+
+RUN_CMD="MYSQL_HOST=${MYSQL_HOST} MYSQL_USERNAME=${MYSQL_USERNAME} MYSQL_PASSWORD=${MYSQL_PASSWORD} ENABLE_REGISTRATIONS=${ENABLE_REGISTRATIONS:-false} node clarkson.js"
+
+cd /app/clarkson
+
+exec \
+	s6-setuidgid abc /bin/bash -c "${RUN_CMD}"
