@@ -40,7 +40,7 @@ RUN \
 	/app/clarkson --strip-components=1 && \
  cd /app/clarkson && \
  chmod +x ./flyway/flyway && \
- npm install && \
+ npm install --production && \
  echo "**** cleanup ****" && \
  apk del --purge build-dependencies && \
  rm -rf \
