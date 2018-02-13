@@ -6,6 +6,9 @@ ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="sparklyballs"
 
+# environment settings
+ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
+
 RUN \
  echo "**** install build packages ****" && \
  apk add --no-cache --virtual=build-dependencies \
