@@ -42,7 +42,9 @@ RUN \
  apk del --purge build-dependencies && \
  rm -rf \
 	/root \
-	/tmp/*
+	/tmp/* && \
+ mkdir -p \
+	/root
 
 # copy local files
 COPY root/ /
