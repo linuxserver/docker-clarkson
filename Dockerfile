@@ -23,9 +23,7 @@ RUN \
 	openjdk8-jre && \
  echo "**** install node packages ****" && \
  npm install -g \
-	node-gyp \
-	ts-node \
-	typescript && \
+	node-gyp && \
  echo "**** install angular-cli ****" && \
  yarn global add @angular/cli && \
  yarn cache clean && \
@@ -51,9 +49,7 @@ RUN \
 	@angular/cli && \
  yarn cache clean && \
  npm uninstall -g \
-	node-gyp \
-	ts-node \
-	typescript && \
+	node-gyp && \
  apk del --purge build-dependencies && \
  rm -rf \
 	/root \
