@@ -45,6 +45,7 @@ RUN \
  npm install && \
  ng build --prod && \
  echo "**** cleanup ****" && \
+ cd /app/clarkson && \
  npm prune --production && \
   yarn global remove \
 	@angular/cli && \
