@@ -39,9 +39,20 @@ RUN \
  /tmp/clarkson-src.tar.gz -C \
 	/app/clarkson --strip-components=1 && \
  cd /app/clarkson && \
+ echo "**** make flway executable ****" && \
  chmod +x ./flyway/flyway && \
- npm install --production && \
+ echo "**** install clarkson node dev modules and build ****" && \
+ npm install && \
+ ng build --prod && \
  echo "**** cleanup ****" && \
+ npm prune --production && \
+  yarn global remove \
+	@angular/cli && \
+ yarn cache clean && \
+ npm uninstall -g \
+	node-gyp \
+	ts-node \
+	typescript && \
  apk del --purge build-dependencies && \
  rm -rf \
 	/root \
