@@ -44,8 +44,9 @@ RUN \
  ng build --prod && \
  echo "**** cleanup ****" && \
  cd /app/clarkson && \
+ npm run prune-angular2 && \
  npm prune --production && \
-  yarn global remove \
+ yarn global remove \
 	@angular/cli && \
  yarn cache clean && \
  npm uninstall -g \
