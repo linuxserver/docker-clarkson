@@ -12,7 +12,9 @@ ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 RUN \
  echo "**** install build packages ****" && \
  apk add --no-cache --virtual=build-dependencies \
+	build-base \
 	curl \
+	libsass-dev \
 	nodejs-npm \
 	tar \
 	python \
