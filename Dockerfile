@@ -17,19 +17,11 @@ RUN \
 	libsass-dev \
 	nodejs-npm \
 	tar \
-	python \
-	yarn && \
+	python && \
  echo "**** install runtime packages ****" && \
  apk add --no-cache \
 	nodejs \
 	openjdk8-jre && \
- echo "**** install node packages ****" && \
- npm config set unsafe-perm true && \
- npm install -g \
-	node-gyp && \
- echo "**** install angular-cli ****" && \
- yarn global add @angular/cli && \
- yarn cache clean && \
  echo "**** install clarkson ****" && \
  mkdir -p \
 	/app/clarkson && \
@@ -43,17 +35,13 @@ RUN \
  echo "**** make flway executable ****" && \
  chmod +x ./flyway/flyway && \
  echo "**** install clarkson node dev modules and build ****" && \
+ npm config set unsafe-perm true && \
  npm install && \
- ng build --prod && \
+ /app/clarkson/node_modules/@angular/cli/bin/ng build --prod && \
  echo "**** cleanup ****" && \
  cd /app/clarkson && \
  npm run prune-angular2 && \
  npm prune --production && \
- yarn global remove \
-	@angular/cli && \
- yarn cache clean && \
- npm uninstall -g \
-	node-gyp && \
  apk del --purge build-dependencies && \
  rm -rf \
 	/root \
