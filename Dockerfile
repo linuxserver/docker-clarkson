@@ -25,9 +25,10 @@ RUN \
  echo "**** install clarkson ****" && \
  mkdir -p \
 	/app/clarkson && \
+ CLARKSON_VER="$(curl -sX GET https://api.github.com/repos/linuxserver/Clarkson/releases/latest | grep 'tag_name' | cut -d\" -f4)" && \
  curl -o \
  /tmp/clarkson-src.tar.gz -L \
-	"https://github.com/linuxserver/Clarkson/archive/master.tar.gz" && \
+	"https://github.com/linuxserver/Clarkson/archive/${CLARKSON_VER}.tar.gz" && \
  tar xf \
  /tmp/clarkson-src.tar.gz -C \
 	/app/clarkson --strip-components=1 && \
