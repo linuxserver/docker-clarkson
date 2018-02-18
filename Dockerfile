@@ -24,6 +24,7 @@ RUN \
 	nodejs \
 	openjdk8-jre && \
  echo "**** install node packages ****" && \
+ npm config set unsafe-perm true && \
  npm install -g \
 	node-gyp && \
  echo "**** install angular-cli ****" && \
