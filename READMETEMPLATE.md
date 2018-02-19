@@ -2,7 +2,7 @@
 [forumurl]: https://forum.linuxserver.io
 [ircurl]: https://www.linuxserver.io/irc/
 [podcasturl]: https://www.linuxserver.io/podcast/
-[appurl]: www.example.com
+[appurl]: https://github.com/linuxserver/Clarkson
 [hub]: https://hub.docker.com/r/linuxserver/clarkson/
 
 
@@ -30,9 +30,7 @@ The [LinuxServer.io][linuxserverurl] team brings you another image release featu
 # linuxserver/clarkson
 [![](https://images.microbadger.com/badges/version/linuxserver/clarkson.svg)](https://microbadger.com/images/linuxserver/clarkson "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/clarkson.svg)](https://microbadger.com/images/linuxserver/clarkson "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/clarkson.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/clarkson.svg)][hub][![Build Status](https://ci.linuxserver.io/buildStatus/icon?job=Docker-Builders/x86-64/x86-64-clarkson)](https://ci.linuxserver.io/job/Docker-Builders/job/x86-64/job/x86-64-clarkson/)
 
-Provide a short, concise description of the application. No more than two SHORT paragraphs. Link to sources where possible and include an image illustrating your point if necessary. Point users to the original applications website, as that's the best place to get support - not here.
-
-`IMPORTANT, replace all instances of linuxserver/clarkson with the correct dockerhub repo (ie linuxserver/plex) and clarkson information (ie, plex)`
+Clarkson is a web-based dashboard application that gives you a neat and clean interface for logging your fuel fill-ups for all of your vehicles. The application has full multi-user support, as well as multiple vehicles per user. Whenever you fill-up your car or motorcycle, keep the receipt and record the data in Clarkson.
 
 &nbsp;
 
@@ -41,9 +39,12 @@ Provide a short, concise description of the application. No more than two SHORT 
 ```
 docker create \
   --name=clarkson \
-  -v <path to data>:/config \
   -e PGID=<gid> -e PUID=<uid>  \
-  -p 1234:1234 \
+  -e MYSQL_HOST=<mysql_host> \
+  -e MYSQL_USERNAME=<mysql_username> \
+  -e MYSQL_PASSWORD=<mysql_password> \
+  -e ENABLE_REGISTRATIONS=<true|false>
+  -p 3000:3000 \
   linuxserver/clarkson
 ```
 
@@ -60,10 +61,13 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 
 | Parameter | Function |
 | :---: | --- |
-| `-p 1234` | the port(s) |
-| `-v /config` | explain what lives here |
+| `-p 3000` | the port(s) |
 | `-e PGID` | for GroupID, see below for explanation |
 | `-e PUID` | for UserID, see below for explanation |
+| `-e MYSQL_HOST` | Points the backend to the MySQL database. This can be either a docker hostname or an IP |
+| `-e MYSQL_USERNAME` | The user with access to the _clarkson_ schema |
+| `-e MYSQL_PASSWORD` | The password for the user |
+| `-e ENABLE_REGISTRATIONS` | **Defaults to _false_**. If set to _true_, allows new users to register |
 
 &nbsp;
 
@@ -84,7 +88,7 @@ In this instance `PUID=1001` and `PGID=1001`, to find yours use `id user` as bel
 
 ## Setting up the application
 
-Insert a basic user guide here to get a n00b up and running with the software inside the container. DELETE ME
+Once running, the container will run an initial MySQL migration, which populates the schema with all tables and procedures. The application will start immediately afterwards. **Please ensure MySQL is running before starting this container**. You will need to register an initial user, of which will be the admin of the application. All subsequent users will be standard users. You can disable registrations after the fact by recreating the container with the `ENABLE_REGISTRATIONS` flag set to `false`. This will not hide the "Register" link, but will disable the functionality.
 
 
 &nbsp;
@@ -104,4 +108,4 @@ Insert a basic user guide here to get a n00b up and running with the software in
 
 |  Date | Changes |
 | :---: | --- |
-| dd.MM.yy |  Initial Release. |
+| 19.02.18 |  Initial Release. |
