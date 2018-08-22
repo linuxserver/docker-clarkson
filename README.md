@@ -120,4 +120,5 @@ Once running, the container will run an initial MySQL migration, which populates
 
 |  Date | Changes |
 | :---: | --- |
+| 22.08.18 |  Rebase to alpine linux 3.8. |
 | 19.02.18 |  Initial Release. |
