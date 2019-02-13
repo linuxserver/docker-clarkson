@@ -4,7 +4,9 @@ echo "---------------------"
 echo "Migrating database..."
 echo "---------------------"
 
-cd /app/clarkson || exit
-./flyway/flyway -user="${MYSQL_USERNAME}" \
-	-password="${MYSQL_PASSWORD}" -schemas=clarkson \
-	-url="jdbc:mysql://${MYSQL_HOST}" migrate
+if [ -z ${TEST_RUN+x} ]; then
+	cd /app/clarkson || exit
+	./flyway/flyway -user="${MYSQL_USERNAME}" \
+		-password="${MYSQL_PASSWORD}" -schemas=clarkson \
+		-url="jdbc:mysql://${MYSQL_HOST}" migrate
+fi
