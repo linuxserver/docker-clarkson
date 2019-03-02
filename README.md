@@ -51,8 +51,8 @@ Here are some example snippets to help you get started creating a container.
 ```
 docker create \
   --name=clarkson \
-  -e PUID=1001 \
-  -e PGID=1001 \
+  -e PUID=1000 \
+  -e PGID=1000 \
   -e MYSQL_HOST=<mysql_host> \
   -e MYSQL_USERNAME=<mysql_username> \
   -e MYSQL_PASSWORD=<mysql_password> \
@@ -76,8 +76,8 @@ services:
     image: linuxserver/clarkson
     container_name: clarkson
     environment:
-      - PUID=1001
-      - PGID=1001
+      - PUID=1000
+      - PGID=1000
       - MYSQL_HOST=<mysql_host>
       - MYSQL_USERNAME=<mysql_username>
       - MYSQL_PASSWORD=<mysql_password>
@@ -85,7 +85,6 @@ services:
       - TZ=Europe/London
     ports:
       - 3000:3000
-    mem_limit: 4096m
     restart: unless-stopped
 ```
 
@@ -96,8 +95,8 @@ Container images are configured using parameters passed at runtime (such as thos
 | Parameter | Function |
 | :----: | --- |
 | `-p 3000` | WebUI |
-| `-e PUID=1001` | for UserID - see below for explanation |
-| `-e PGID=1001` | for GroupID - see below for explanation |
+| `-e PUID=1000` | for UserID - see below for explanation |
+| `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e MYSQL_HOST=<mysql_host>` | Points the backend to the MySQL database. This can be either a docker hostname or an IP. |
 | `-e MYSQL_USERNAME=<mysql_username>` | The user with access to the _clarkson_ schema. |
 | `-e MYSQL_PASSWORD=<mysql_password>` | The password for the user. |
@@ -110,11 +109,11 @@ When using volumes (`-v` flags) permissions issues can arise between the host OS
 
 Ensure any volume directories on the host are owned by the same user you specify and any permissions issues will vanish like magic.
 
-In this instance `PUID=1001` and `PGID=1001`, to find yours use `id user` as below:
+In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as below:
 
 ```
   $ id username
-    uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
+    uid=1000(dockeruser) gid=1000(dockergroup) groups=1000(dockergroup)
 ```
 
 
@@ -158,9 +157,20 @@ Below are the instructions for updating containers:
 * Start the new container: `docker start clarkson`
 * You can also remove the old dangling images: `docker image prune`
 
+### Via Taisun auto-updater (especially useful if you don't remember the original parameters)
+* Pull the latest image at its tag and replace it with the same env variables in one shot:
+  ```
+  docker run --rm \
+  -v /var/run/docker.sock:/var/run/docker.sock taisun/updater \
+  --oneshot clarkson
+  ```
+* You can also remove the old dangling images: `docker image prune`
+
 ### Via Docker Compose
-* Update the image: `docker-compose pull linuxserver/clarkson`
-* Let compose update containers as necessary: `docker-compose up -d`
+* Update all images: `docker-compose pull`
+  * or update a single image: `docker-compose pull clarkson`
+* Let compose update all containers as necessary: `docker-compose up -d`
+  * or update a single container: `docker-compose up -d clarkson`
 * You can also remove the old dangling images: `docker image prune`
 
 ## Versions
