@@ -24,8 +24,10 @@ RUN \
 	python && \
  echo "**** install runtime packages ****" && \
  apk add --no-cache \
-	nodejs \
-	openjdk8-jre && \
+        nodejs \
+        nss \
+        openjdk8-jre \
+        sqlite-libs && \
  echo "**** install clarkson ****" && \
  if [ -z ${CLARKSON_RELEASE+x} ]; then \
 	CLARKSON_RELEASE=$(curl -sX GET "https://api.github.com/repos/linuxserver/Clarkson/releases/latest" \

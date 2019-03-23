@@ -175,6 +175,7 @@ Below are the instructions for updating containers:
 
 ## Versions
 
+* **23.03.19:** - Updating runtime dependancies for the JRE.
 * **22.02.19:** - Rebasing to alpine 3.9.
 * **11.02.19:** - Add pipeline logic and multi arch.
 * **22.08.18:** - Rebase to alpine linux 3.8.
