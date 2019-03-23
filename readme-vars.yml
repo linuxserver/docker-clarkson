@@ -60,6 +60,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "23.03.19:", desc: "Updating runtime dependancies for the JRE." }
   - { date: "22.02.19:", desc: "Rebasing to alpine 3.9." }
   - { date: "11.02.19:", desc: "Add pipeline logic and multi arch." }
   - { date: "22.08.18:", desc: "Rebase to alpine linux 3.8." }
