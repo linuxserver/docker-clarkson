@@ -119,7 +119,7 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as bel
 &nbsp;
 ## Application Setup
 
-**Please ensure MySQL is running before starting this container**.
+**Clarkson requires v5.7.* of MySQL and please ensure MySQL is running before starting this container**.
 
 It is preferred if you create the `clarkson` schema before initially running the container, then creating a user with granted permissions for the schema. Creating the schema before running the app is important as the "clarkson" user will not have permission to create the schema on your behalf. You can, of course, use the "root" user, which has the ability to create schemas automatically, but this is not recommended.
 
