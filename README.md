@@ -55,7 +55,7 @@ docker create \
   -e MYSQL_HOST=<mysql_host> \
   -e MYSQL_USERNAME=<mysql_username> \
   -e MYSQL_PASSWORD=<mysql_password> \
-  -e ENABLE_REGISTRATIONS=<true|false> \
+  -e ENABLE_REGISTRATIONS=<true/false> \
   -e TZ=Europe/London \
   -p 3000:3000 \
   --restart unless-stopped \
@@ -80,7 +80,7 @@ services:
       - MYSQL_HOST=<mysql_host>
       - MYSQL_USERNAME=<mysql_username>
       - MYSQL_PASSWORD=<mysql_password>
-      - ENABLE_REGISTRATIONS=<true|false>
+      - ENABLE_REGISTRATIONS=<true/false>
       - TZ=Europe/London
     ports:
       - 3000:3000
@@ -99,7 +99,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e MYSQL_HOST=<mysql_host>` | Points the backend to the MySQL database. This can be either a docker hostname or an IP. |
 | `-e MYSQL_USERNAME=<mysql_username>` | The user with access to the _clarkson_ schema. |
 | `-e MYSQL_PASSWORD=<mysql_password>` | The password for the user. |
-| `-e ENABLE_REGISTRATIONS=<true|false>` | **Defaults to _false_**. If set to _true_, allows new users to register. |
+| `-e ENABLE_REGISTRATIONS=<true/false>` | **Defaults to _false_.** If set to _true_, allows new users to register. |
 | `-e TZ=Europe/London` | Specify a timezone to use EG Europe/London. |
 
 ## User / Group Identifiers

@@ -26,7 +26,7 @@ param_env_vars:
   - { env_var: "MYSQL_HOST", env_value: "<mysql_host>", desc: "Points the backend to the MySQL database. This can be either a docker hostname or an IP." }
   - { env_var: "MYSQL_USERNAME", env_value: "<mysql_username>", desc: "The user with access to the _clarkson_ schema." }
   - { env_var: "MYSQL_PASSWORD", env_value: "<mysql_password>", desc: "The password for the user." }
-  - { env_var: "ENABLE_REGISTRATIONS", env_value: "<true|false>", desc: "**Defaults to _false_**. If set to _true_, allows new users to register." }
+  - { env_var: "ENABLE_REGISTRATIONS", env_value: "<true/false>", desc: "**Defaults to _false_.** If set to _true_, allows new users to register." }
   - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London." }
 param_usage_include_vols: false
 param_usage_include_ports: true
