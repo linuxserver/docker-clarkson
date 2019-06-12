@@ -26,7 +26,7 @@ param_env_vars:
   - { env_var: "MYSQL_HOST", env_value: "<mysql_host>", desc: "Points the backend to the MySQL database. This can be either a docker hostname or an IP." }
   - { env_var: "MYSQL_USERNAME", env_value: "<mysql_username>", desc: "The user with access to the _clarkson_ schema." }
   - { env_var: "MYSQL_PASSWORD", env_value: "<mysql_password>", desc: "The password for the user." }
-  - { env_var: "ENABLE_REGISTRATIONS", env_value: "<true|false>", desc: "**Defaults to _false_**. If set to _true_, allows new users to register." }
+  - { env_var: "ENABLE_REGISTRATIONS", env_value: "<true/false>", desc: "**Defaults to _false_.** If set to _true_, allows new users to register." }
   - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London." }
 param_usage_include_vols: false
 param_usage_include_ports: true
@@ -46,7 +46,7 @@ optional_block_1: false
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
-  **Please ensure MySQL is running before starting this container**.
+  **Clarkson requires v5.7.* of MySQL and please ensure MySQL is running before starting this container**.
 
   It is preferred if you create the `clarkson` schema before initially running the container, then creating a user with granted permissions for the schema. Creating the schema before running the app is important as the "clarkson" user will not have permission to create the schema on your behalf. You can, of course, use the "root" user, which has the ability to create schemas automatically, but this is not recommended.
 

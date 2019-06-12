@@ -55,7 +55,7 @@ docker create \
   -e MYSQL_HOST=<mysql_host> \
   -e MYSQL_USERNAME=<mysql_username> \
   -e MYSQL_PASSWORD=<mysql_password> \
-  -e ENABLE_REGISTRATIONS=<true|false> \
+  -e ENABLE_REGISTRATIONS=<true/false> \
   -e TZ=Europe/London \
   -p 3000:3000 \
   --restart unless-stopped \
@@ -80,7 +80,7 @@ services:
       - MYSQL_HOST=<mysql_host>
       - MYSQL_USERNAME=<mysql_username>
       - MYSQL_PASSWORD=<mysql_password>
-      - ENABLE_REGISTRATIONS=<true|false>
+      - ENABLE_REGISTRATIONS=<true/false>
       - TZ=Europe/London
     ports:
       - 3000:3000
@@ -99,7 +99,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e MYSQL_HOST=<mysql_host>` | Points the backend to the MySQL database. This can be either a docker hostname or an IP. |
 | `-e MYSQL_USERNAME=<mysql_username>` | The user with access to the _clarkson_ schema. |
 | `-e MYSQL_PASSWORD=<mysql_password>` | The password for the user. |
-| `-e ENABLE_REGISTRATIONS=<true|false>` | **Defaults to _false_**. If set to _true_, allows new users to register. |
+| `-e ENABLE_REGISTRATIONS=<true/false>` | **Defaults to _false_.** If set to _true_, allows new users to register. |
 | `-e TZ=Europe/London` | Specify a timezone to use EG Europe/London. |
 
 ## User / Group Identifiers
@@ -119,7 +119,7 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as bel
 &nbsp;
 ## Application Setup
 
-**Please ensure MySQL is running before starting this container**.
+**Clarkson requires v5.7.* of MySQL and please ensure MySQL is running before starting this container**.
 
 It is preferred if you create the `clarkson` schema before initially running the container, then creating a user with granted permissions for the schema. Creating the schema before running the app is important as the "clarkson" user will not have permission to create the schema on your behalf. You can, of course, use the "root" user, which has the ability to create schemas automatically, but this is not recommended.
 
