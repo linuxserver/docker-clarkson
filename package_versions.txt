@@ -53,9 +53,9 @@ ncurses-terminfo-base-6.1_p20190518-r0
 nodejs-10.16.0-r0
 nspr-4.20-r0
 nss-3.44-r0
-openjdk8-jre-8.212.04-r0
-openjdk8-jre-base-8.212.04-r0
-openjdk8-jre-lib-8.212.04-r0
+openjdk8-jre-8.212.04-r1
+openjdk8-jre-base-8.212.04-r1
+openjdk8-jre-lib-8.212.04-r1
 p11-kit-0.23.16.1-r0
 p11-kit-trust-0.23.16.1-r0
 pcsc-lite-libs-1.8.25-r1
