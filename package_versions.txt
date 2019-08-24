@@ -35,7 +35,7 @@ libtasn1-4.14-r0
 libtls-standalone-2.9.1-r0
 libuv-1.29.1-r0
 libverto-0.3.1-r0
-libx11-1.6.8-r0
+libx11-1.6.8-r1
 libxau-1.0.9-r0
 libxcb-1.13.1-r0
 libxcomposite-0.4.5-r0
