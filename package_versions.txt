@@ -1,7 +1,7 @@
 alpine-baselayout-3.2.0-r7
 alpine-keys-2.2-r0
 alsa-lib-1.2.2-r0
-apk-tools-2.10.6-r0
+apk-tools-2.10.7-r0
 bash-5.0.17-r0
 brotli-libs-1.0.9-r1
 busybox-1.31.1-r20
@@ -57,7 +57,7 @@ musl-utils-1.1.24-r10
 ncurses-libs-6.2_p20200523-r0
 ncurses-terminfo-base-6.2_p20200523-r0
 nghttp2-libs-1.41.0-r0
-nodejs-12.22.2-r0
+nodejs-12.22.4-r0
 nspr-4.27-r0
 nss-3.60-r1
 openjdk8-jre-8.275.01-r0
