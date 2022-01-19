@@ -1,3 +1,9 @@
+# DEPRECATION NOTICE
+
+This image is deprecated. We will not offer support for this image and it will not be updated.
+We recommend looking at Hammond as a replacement:
+https://github.com/akhilrex/hammond
+
 <!--- Provide a general summary of your changes in the Title above -->
 
 [linuxserverurl]: https://linuxserver.io

@@ -27,6 +27,12 @@ Find us at:
 * [GitHub](https://github.com/linuxserver) - view the source for all of our repositories.
 * [Open Collective](https://opencollective.com/linuxserver) - please consider helping us by either donating or contributing to our budget
 
+# DEPRECATION NOTICE
+
+This image is deprecated. We will not offer support for this image and it will not be updated.
+We recommend looking at Hammond as a replacement:
+https://github.com/akhilrex/hammond
+
 # [linuxserver/clarkson](https://github.com/linuxserver/docker-clarkson)
 
 [![Scarf.io pulls](https://scarf.sh/installs-badge/linuxserver-ci/linuxserver%2Fclarkson?color=94398d&label-color=555555&logo-color=ffffff&style=for-the-badge&package-type=docker)](https://scarf.sh/gateway/linuxserver-ci/docker/linuxserver%2Fclarkson)
@@ -239,6 +245,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **19.01.22:** - Deprecate.
 * **02.06.20:** - Rebasing to alpine 3.12.
 * **19.12.19:** - Rebasing to alpine 3.11.
 * **28.06.19:** - Rebasing to alpine 3.10.
